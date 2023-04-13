@@ -1,0 +1,44 @@
+# Program.cs
+
+
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Enter the booking details");
+        //fill code here
+        string bdetails = Console.ReadLine();
+        Console.WriteLine("Enter the seat number to book");
+        int sno = int.Parse(Console.ReadLine());
+        try{
+            if(sno <=  bdetails.Length && sno >= 1 ){
+                if(bdetails[sno-1] == '0' ){
+                    Console.WriteLine("Booked successfully");
+                }else{
+                    Console.WriteLine("Seat booked already");
+                }
+            }else{
+                    throw new IndexOutOfRangeException("Array index is out of range.");
+            }
+        }
+        catch (IndexOutOfRangeException e){
+            Console.WriteLine(e.Message);
+        }
+    }
+}
+
+
+# SeatNotAvailableException.cs
+
+using System;
+
+class SeatNotAvailableException : Exception
+{
+    //fill code here
+    public SeatNotAvailableException(string Message) : base(Message){
+   
+    }
+}
+
